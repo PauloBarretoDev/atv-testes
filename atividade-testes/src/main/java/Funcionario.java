@@ -76,6 +76,23 @@ public class Funcionario {
         return salarioAnual;
     }
 
+    public double calcularSalarioLiquido(double salarioBruto) {
+        double inss = 0.0;
+        if(salarioBruto < 2000){
+            inss = 0.0;
+        }else if(salarioBruto > 2000.0 && salarioBruto < 3000.0 ){
+            inss = 0.05;
+        }else if(salarioBruto > 3000.0 && salarioBruto < 4000.0 ){
+            inss = 0.10;
+        }else if(salarioBruto > 4000.0 && salarioBruto < 4500.0 ){
+            inss = 0.15;
+        }else{
+            inss = 0.20;
+        }
+        double desconto = salarioBruto * inss;
+        return salarioBruto - desconto;
+    }
+
     @Override
     public String toString() {
         return "Funcionário: " + this.getNomeCompleto() + "\nSalário: R$ " + this.getSalario() + "\nQuantidade de Vendas: " + this.getVendas();

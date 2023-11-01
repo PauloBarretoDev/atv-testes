@@ -73,4 +73,17 @@ class FuncionarioTest {
         assertEquals(24000.0,resultado);
     }
 
+    @Test
+    public void testCalcularSalarioLiquido(){
+        Funcionario funcionarioMock = mock(Funcionario.class);
+
+        when(funcionarioMock.calcularSalarioLiquido(3000.0)).thenReturn(2850.0);
+        double resultado = funcionarioMock.calcularSalarioLiquido(3000.0);
+        System.out.println(resultado);
+
+        verify(funcionarioMock).calcularSalarioLiquido(3000.0);
+
+        assertEquals(2850.0,resultado);
+    }
+
 }
