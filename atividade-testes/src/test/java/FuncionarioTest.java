@@ -43,4 +43,20 @@ class FuncionarioTest {
         assertEquals(true,resultado);
     }
 
+    @Test
+    public void testVenderFerias(){
+        //Mock
+        Funcionario funcionarioMock = mock(Funcionario.class);
+
+        // When
+        when(funcionarioMock.venderFerias(1000.0,10)).thenReturn(1333.3);
+        double resultado = funcionarioMock.venderFerias(1000.0,10);
+        System.out.println(resultado);
+
+        // Verify
+        verify(funcionarioMock).venderFerias(1000.0,10);
+
+        assertEquals(1333.3,resultado);
+    }
+
 }

@@ -7,12 +7,13 @@ public class Funcionario {
     private double salario;
     private int vendas;
     private double percAumento = 0.1;
-    private String admissao = "2021-11-01";
+    private String admissao;
     private boolean eleitoFerias;
-    public Funcionario(String nomeCompleto, double salario, int vendas) {
+    public Funcionario(String nomeCompleto, double salario, int vendas, String admissao) {
         this.nomeCompleto = nomeCompleto;
         this.salario = salario;
         this.vendas = vendas;
+        this.admissao = admissao;
     }
 
     public String getNomeCompleto() {
@@ -26,6 +27,8 @@ public class Funcionario {
     public int getVendas() {
         return this.vendas;
     }
+
+    public String getAdmissao(){return this.admissao;}
 
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
@@ -45,7 +48,7 @@ public class Funcionario {
 
     public double aumentarSalarioComBaseVendas(double salario, int vendas, double percentual) {
         double salarioNovo =  salario + (vendas * percentual);
-        this.salario = salario;
+        this.salario = salarioNovo;
         return salarioNovo;
     }
 
@@ -62,9 +65,13 @@ public class Funcionario {
         }
     }
 
-    public void cadastrarVenda(int quantidadeVendas) {
-        this.vendas = this.getVendas() + quantidadeVendas;
+    public double venderFerias(double salario,int diasVendidos) {
+        double diaTrabalhado = (salario/30);
+        double totalBonus = diaTrabalhado * diasVendidos;
+        return totalBonus;
     }
+
+
 
     @Override
     public String toString() {
