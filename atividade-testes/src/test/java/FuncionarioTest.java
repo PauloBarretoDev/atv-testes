@@ -27,5 +27,20 @@ class FuncionarioTest {
     }
 
     @Test
+    public void testEleitoAFerias(){
+        //Mock
+        Funcionario funcionarioMock = mock(Funcionario.class);
+
+        // When
+        when(funcionarioMock.eleitoTirarFerias("2022-01-01")).thenReturn(true);
+
+        boolean resultado = funcionarioMock.eleitoTirarFerias("2022-01-01");
+        System.out.println(resultado);
+
+        // Verify
+        verify(funcionarioMock).eleitoTirarFerias("2022-01-01");
+
+        assertEquals(true,resultado);
+    }
 
 }
