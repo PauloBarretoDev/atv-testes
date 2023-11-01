@@ -19,6 +19,7 @@ class FuncionarioTest {
 
         double resultado = funcionarioMock.aumentarSalarioComBaseVendas(1000.0,100,0.1);
         System.out.println(resultado);
+        System.out.println("Teste");
 
         // Verify
         verify(funcionarioMock).aumentarSalarioComBaseVendas(1000.0,100,0.1);
@@ -57,6 +58,19 @@ class FuncionarioTest {
         verify(funcionarioMock).venderFerias(1000.0,10);
 
         assertEquals(1333.3,resultado);
+    }
+
+    @Test
+    public void testSalarioAnual(){
+        Funcionario funcionarioMock = mock(Funcionario.class);
+
+        when(funcionarioMock.calcularSalarioAnual(2000.0)).thenReturn(24000.0);
+        double resultado = funcionarioMock.calcularSalarioAnual(2000.0);
+        System.out.println(resultado);
+
+        verify(funcionarioMock).calcularSalarioAnual(2000.0);
+
+        assertEquals(24000.0,resultado);
     }
 
 }

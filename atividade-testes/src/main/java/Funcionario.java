@@ -71,7 +71,10 @@ public class Funcionario {
         return totalBonus;
     }
 
-
+    public double calcularSalarioAnual(double salario) {
+        double salarioAnual = salario * 12;
+        return salarioAnual;
+    }
 
     @Override
     public String toString() {
