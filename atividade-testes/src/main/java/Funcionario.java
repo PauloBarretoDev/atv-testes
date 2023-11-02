@@ -1,6 +1,5 @@
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 public class Funcionario {
     private String nomeCompleto;
@@ -9,6 +8,7 @@ public class Funcionario {
     private double percAumento = 0.1;
     private String admissao;
     private boolean eleitoFerias;
+
     public Funcionario(String nomeCompleto, double salario, int vendas, String admissao) {
         this.nomeCompleto = nomeCompleto;
         this.salario = salario;
